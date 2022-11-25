@@ -16,24 +16,38 @@ fun Route.requestHandler(context: Context) {
 
     val dogService by inject<DogService>()
 
+    put(path = "/init") {
+
+        startScreenOnRequest(context.applicationContext)
+        dogService.initDogArray()
+        call.respond(
+            ResponseModel(
+                data = "Three dogs inserted",
+                statusCode = HttpStatusCode.Accepted
+            ))
+
+    }
+
     get(path = "/dog") {
 
+        startScreenOnRequest(context.applicationContext)
         call.respond(ResponseModel
             (data = dogService.dogList(),
             statusCode = HttpStatusCode.Accepted)
         )
-        startScreenOnRequest(context.applicationContext)
 
     }
 
     put(path = "/dog") {
-        val dog = call.receive<Dog>()
-            call.respond(ResponseModel(
-                data = dogService.insertDog(dog),
-                statusCode = HttpStatusCode.Accepted
-            )
-        )
+
         startScreenOnRequest(context.applicationContext)
+        val dog = call.receive<Dog>()
+        dogService.insertDog(dog)
+        call.respond(ResponseModel(
+                data = dog,
+                statusCode = HttpStatusCode.Accepted
+        ))
+
     }
 
     delete(path = "/dog/{id}") {

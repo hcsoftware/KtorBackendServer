@@ -4,35 +4,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/theme_color_light_brown"
+    tools:context=".view.MainActivity">
 
     <TextView
-        android:id="@+id/ma_title"
+        android:id="@+id/ma_text_app_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome To Ktor Backend Server"
-        android:layout_marginTop="50dp"
+        style="@style/Theme.KtorBackendServer.TextTiTle"
+        android:text="@string/ma_txt_app_tittle"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <View
+        android:layout_marginTop="15dp"
+        android:id="@+id/ma_view_border_0"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/theme_color_dark_pink"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ma_text_app_title"/>
 
     <Button
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/ma_button_server_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ma_title"/>
+        app:layout_constraintTop_toBottomOf="@+id/ma_view_border_0"/>
 
     <TextView
-        android:text="the server is disabled."
-        android:layout_marginTop="50dp"
+        style="@style/Theme.KtorBackendServer.TextServerDesc"
         android:id="@+id/ma_text_server_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/ma_button_server_switch"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/ma_text_server_methods"
+        style="@style/Theme.KtorBackendServer.TextServerDesc"
+        android:text="@string/ma_server_connection"
+        android:visibility="gone"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ma_text_server_info" />
+
+    <View
+        android:layout_marginTop="15dp"
+        android:id="@+id/ma_view_border_1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/theme_color_dark_pink"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ma_text_server_methods"/>
+
+    <TextView
+        android:id="@+id/ma_text_dog_list_subtitle"
+        android:text="@string/ma_txt_subtitle_dog_list"
+        style="@style/Theme.KtorBackendServer.Subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ma_view_border_1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="15dp"
+        android:id="@+id/ma_dogs_item_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ma_text_dog_list_subtitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

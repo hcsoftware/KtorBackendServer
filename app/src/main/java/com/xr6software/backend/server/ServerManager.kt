@@ -30,7 +30,7 @@ class ServerManager : ViewModel() {
     }
 
     fun serverStatusSwitch(context: Context) {
-        if (getKtorServerStatus(context)) {startKtorServer(context); serverStatus.value = true}
+        if (!getKtorServerStatus(context)) {startKtorServer(context); serverStatus.value = true}
         else {stopKtorServer(context); serverStatus.value = false}
     }
 
