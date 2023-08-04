@@ -1,7 +1,6 @@
-package com.xr6software.backend.view
+package com.xr6software.backend.view.adapter
 
 import android.content.Context
-import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,10 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.xr6software.backend.R
 import com.xr6software.backend.model.Dog
-import com.xr6software.backend.model.DogViewHolderItem
-import com.xr6software.backend.model.toDogViewHolderItem
 
-class AdapterDogList(val context : Context) : RecyclerView.Adapter<AdapterDogList.ViewHolder>() {
+class AdapterDogList(private val context : Context, private val clickListener: AdapterClickListener) : RecyclerView.Adapter<AdapterDogList.ViewHolder>() {
 
     private val dogList = ArrayList<Dog>()
 
@@ -25,18 +22,26 @@ class AdapterDogList(val context : Context) : RecyclerView.Adapter<AdapterDogLis
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return AdapterDogList.ViewHolder(
+        return ViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.item_dog, parent, false)
         )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val dog : DogViewHolderItem = dogList[position].toDogViewHolderItem()
-        holder.dogName.text =  context.getString(R.string.dog_item_name) + " "+ dog.name
-        holder.dogAge.text = context.getString(R.string.dog_item_age) + " " + dog.age
-        holder.dogBreed.text = context.getString(R.string.dog_item_breed) + " " + dog.breed
-        holder.dogImg.load(dog.img)
+        val dog = dogList[position]
+        var value = context.getString(R.string.dog_item_name) + " "+ dog.name
+        holder.dogName.text = value
+        value = context.getString(R.string.dog_item_age) + " " + dog.age
+        holder.dogAge.text = value
+        value = context.getString(R.string.dog_item_breed) + " " + dog.breed
+        holder.dogBreed.text = value
+        holder.dogImg.load(dog.img){
+            error(com.google.android.material.R.drawable.mtrl_ic_error)
+        }
+        holder.itemView.setOnClickListener {
+            clickListener.onClick(dog)
+        }
 
     }
 

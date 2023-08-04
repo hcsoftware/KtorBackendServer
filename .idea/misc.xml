@@ -4,8 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/herna/Downloads/Projects/KtorBackendServer/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/herna/android_projects/KtorBackendServer/app/src/main/res/drawable/dialog_shape_dog.xml" value="0.202" />
         <entry key="..\:/Users/herna/android_projects/KtorBackendServer/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.196" />
-        <entry key="..\:/Users/herna/android_projects/KtorBackendServer/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/herna/android_projects/KtorBackendServer/app/src/main/res/drawable/ic_pets_24.xml" value="0.3675" />
+        <entry key="..\:/Users/herna/android_projects/KtorBackendServer/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/herna/android_projects/KtorBackendServer/app/src/main/res/layout/dialog_dog_info.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/herna/android_projects/KtorBackendServer/app/src/main/res/layout/item_dog.xml" value="0.33948339483394835" />
         <entry key="..\:/Users/herna/android_projects/KtorBackendServer/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.196" />
         <entry key="..\:/Users/herna/android_projects/KtorBackendServer/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.196" />

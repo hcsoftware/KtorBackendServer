@@ -1,4 +1,12 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        ktor_version = "2.0.3" //Ktor server Library def for project
+        koin_version = "3.2.2" //Koin Library (DI) def for project
+        coil_version = "2.1.0" //Coil image Library (DI) def for project
+    }
+}
+
 plugins {
     id 'com.android.application' version '7.1.0' apply false
     id 'com.android.library' version '7.1.0' apply false
