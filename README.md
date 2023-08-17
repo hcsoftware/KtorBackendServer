@@ -1,19 +1,19 @@
-# Ktor Backend Server 
+# Ktor Backend API Server 
 <p> Architecture : Model - View - ViewModel  <br>
 Language: Kotlin<br>
 
-<p>This application starts a ktor backend wich receives requests to insert dog in server, remove dog, list dogs. All via HTTP methods. The changes are reflected live in the
-main activity layout.</p>
+<p>This application manages a backend API server wich receives requests to insert dogs, remove dogs, and list dogs. All via HTTP request methods. The changes are reflected live in the main activity layout. The server runs as an android service.</p>
 Use cases:
 <ul>
 <li>Init (inserts 3 dogs in server)</li>
 <li>Insert Dog</li>
 <li>List Dogs</li>
-<li>Remover Dog</li>
+<li>Remove Dog</li>
 </ul>
 
 Implements:<br></p>
 <ul>
+<li>Ktor framework for backend API Server. Read more in -> https://ktor.io/docs/welcome.html</li> 
 <li>Gson library to handle JSON objects</li>
 <li>Coil library to load Images. This library uses coroutines</li>
 <li>Koin library for dependency injection</li>
@@ -36,7 +36,10 @@ App layers and classes: <br>
  -> Views   * Holds the main activity and Recycler View Adapter.<br>
  Some ScreenShots:
   <div>
-    <img src="https://user-images.githubusercontent.com/100162759/204053761-28f4ab23-486d-428c-8143-fb421562d71a.png" width=30% height=30%>
-    <img src="https://user-images.githubusercontent.com/100162759/204053769-b700ee5a-9d65-404c-bb05-b19225343bec.png" width=30% height=30%>
-    <img src="https://user-images.githubusercontent.com/100162759/204053772-eebf9673-0c57-48f9-90b3-a8e1059da2d9.png" width=30% height=30%>
+    <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/100162759/261441045-6ded4c90-4c0a-4ce4-87b6-69fd3f546905.png" width=30% height=30%>
+    <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/100162759/261441032-126463ce-ecc0-4464-bcd1-078158ec22f9.png" width=30% height=30%>
+    <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/100162759/261441050-2da680d5-dcb7-4e18-bb67-5b386e0327c1.png" width=30% height=30%>
 </div>
+
+
+
