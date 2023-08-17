@@ -1,9 +1,10 @@
-package com.xr6software.backend.server
+package com.xr6software.backend.server.service
 
 import android.content.Context
 import android.os.PowerManager
+import com.xr6software.backend.di.modules.DogModule
 import com.xr6software.backend.model.Dog
-import com.xr6software.backend.model.ResponseModel
+import com.xr6software.backend.server.model.ResponseModel
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
@@ -14,25 +15,33 @@ import org.koin.ktor.ext.inject
 
 fun Route.requestHandler(context: Context) {
 
-    val dogService by inject<DogService>()
+    val dogModule by inject<DogModule>()
 
     put(path = "/init") {
 
         startScreenOnRequest(context.applicationContext)
-        dogService.initDogArray()
+        dogModule.initDogArray()
         call.respond(
             ResponseModel(
-                data = "Three dogs inserted",
+                data = "New dogs available.",
                 statusCode = HttpStatusCode.Accepted
-            ))
+            )
+        )
 
     }
 
     get(path = "/dog") {
 
         startScreenOnRequest(context.applicationContext)
+
+        var responseData : Any? = if (dogModule.dogList().isNullOrEmpty()) {
+            "No dogs in server."
+        } else {
+            dogModule.dogList()
+        }
+
         call.respond(ResponseModel
-            (data = dogService.dogList(),
+            (data = responseData,
             statusCode = HttpStatusCode.Accepted)
         )
 
@@ -42,7 +51,7 @@ fun Route.requestHandler(context: Context) {
 
         startScreenOnRequest(context.applicationContext)
         val dog = call.receive<Dog>()
-        dogService.insertDog(dog)
+        dogModule.insertDog(dog)
         call.respond(ResponseModel(
                 data = dog,
                 statusCode = HttpStatusCode.Accepted
@@ -50,13 +59,14 @@ fun Route.requestHandler(context: Context) {
 
     }
 
-    delete(path = "/dog/{id}") {
+    delete(path = "/dog/id={id}") {
+        startScreenOnRequest(context.applicationContext)
+
         val dogId = call.parameters["id"]?.toInt()
         call.respond(ResponseModel(
-            data = dogService.removeDog(dogId ?: 1),
+            data = dogModule.removeDog(dogId ?: 1),
             statusCode = HttpStatusCode.Accepted
         ))
-        startScreenOnRequest(context.applicationContext)
     }
 
 }

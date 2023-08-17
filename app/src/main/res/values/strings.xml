@@ -2,22 +2,29 @@
     <string name="app_name">Ktor Dog Server</string>
 
     <!-- MAIN LAYOUT STRINGS -->
-    <string name="ma_server_info">ADDRESS: </string>
+    <string name="ma_server_info">SERVER URL: </string>
     <string name="ma_server_connection">SERVER COMMANDS: \n
-        -> /init inserts three dogs  Method: PUT\n
-        -> /dog returns dogs in json format Method: GET \n
-        -> /dog insert dog Method: PUT \n
-        (receive json object id, name, age, breed, img)
+        -> /init \n
+        Inserts four dogs. Method: PUT\n
+        -> /dog \n
+        Returns dogs in json format. Method: GET \n
+        -> /dog \n
+        Receive json object with (name, age, breed, img url). Method: PUT \n
+        -> /dog/id={id} \n
+        Delete dog with given id. Method: DELETE\n
+
     </string>
+    <string name="ma_btn_server_enabled">STOP SERVER</string>
+    <string name="ma_btn_server_disabled">START SERVER</string>
+    <string name="ma_txt_subtitle_dog_list">Dogs in Server:</string>
+    <string name="ma_txt_app_tittle">DOG SERVER KTOR</string>
 
     <!-- DOG ITEM STRINGS -->
     <string name="dog_item_name">Name: </string>
     <string name="dog_item_breed">Breed: </string>
     <string name="dog_item_age">Age: </string>
-    <string name="ma_txt_subtitle_dog_list">Dogs in Server:</string>
-    <string name="ma_txt_app_tittle">KTOR DOG BACKEND SERVER</string>
-    <string name="ma_btn_server_enabled">SERVER ENABLED</string>
-    <string name="ma_btn_server_disabled">SERVER DISABLED</string>
+
+
 
 
 </resources>

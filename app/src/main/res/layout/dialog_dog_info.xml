@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_shape_dog"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dialog_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="@color/theme_color_dark_pink"
+        android:layout_marginBottom="10dp"/>
+
+
+    <ImageView
+        android:id="@+id/dialog_imageView"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="3dp"
+        android:layout_gravity="center_horizontal"
+        tools:srcCompat="@tools:sample/avatars" />
+
+
+    <TextView
+        android:id="@+id/dialog_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        android:gravity="center_horizontal"
+        android:scrollbars="vertical"
+        android:textStyle="normal"
+        android:textSize="14sp"
+        android:textColor="@color/theme_color_dark_pink" />
+
+    <Button
+        android:id="@+id/dialog_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="CLOSE" />
+
+</LinearLayout>

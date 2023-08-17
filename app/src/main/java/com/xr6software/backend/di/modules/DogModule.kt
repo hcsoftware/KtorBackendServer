@@ -1,18 +1,18 @@
-package com.xr6software.backend.server
+package com.xr6software.backend.di.modules
 
 import com.xr6software.backend.model.Dog
 import com.xr6software.backend.repositories.DogRepository
-import com.xr6software.backend.repositories.DogRepositoryImp
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-class DogService: KoinComponent {
+
+class DogModule: KoinComponent {
 
     private val dogRepository by inject<DogRepository>()
 
-    fun dogList() : List<Dog> = dogRepository.dogList()
+    fun dogList() : ArrayList<Dog>? = dogRepository.getDogList().value
 
-    fun removeDog(id: Int) : Dog = dogRepository.removeDog(id as Dog)
+    fun removeDog(id: Int) : Dog = dogRepository.removeDog(id)
 
     fun insertDog(dog: Dog) = dogRepository.addDog(dog)
 
